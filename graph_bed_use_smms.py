@@ -21,6 +21,8 @@ else:
     # 获取图片路径
     path = sys.argv[1]
 
+# print(sys.argv)
+# sys.exit()
 
 # 检查图片是否存在
 if os.path.exists(path):
@@ -34,5 +36,8 @@ if os.path.exists(path):
             print('upload photo success!')
             # 输出
             print(return_data['data']['url'])
+        else:
+            return_data = json.loads(r.text)
+            sys.exit(return_data)
 else:
     sys.exit('File Not Found')
